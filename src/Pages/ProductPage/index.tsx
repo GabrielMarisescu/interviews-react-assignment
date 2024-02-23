@@ -3,12 +3,14 @@ import { Box, CssBaseline } from '@mui/material'
 import SearchAppBar from './Components/SearchAppBar.tsx'
 import { Categories } from './Components/Categories.tsx'
 import { useState } from 'react'
+import { useProductPageStore } from './Store.ts'
 
 function App() {
+    const bears = useProductPageStore((state) => state.bears)
     const [cart, setCart] = useState<Cart>()
-
     function onCartChange(cart: Cart) {
         setCart(cart)
+        console.log(bears)
     }
     return (
         <Box height="100vh" display="flex" flexDirection="column">
