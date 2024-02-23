@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
 import './index.css'
 import ErrorPage from './Common/Components/errorPage'
-import App from './App'
+import ProductPage from './Pages/ProductPage/index.tsx'
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: <ProductPage />,
         errorElement: <ErrorPage />,
     },
 ])
