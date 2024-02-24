@@ -13,22 +13,8 @@ import {
 import RemoveIcon from '@mui/icons-material/Remove'
 import AddIcon from '@mui/icons-material/Add'
 import { HeavyComponent } from '../../../Common/Hooks/HeavyComponent'
+import { Cart, Product } from '../interfaces'
 
-export type Product = {
-    id: number
-    name: string
-    imageUrl: string
-    price: number
-    category: string
-    itemInCart: number
-    loading: boolean
-}
-
-export type Cart = {
-    items: Product[]
-    totalPrice: number
-    totalItems: number
-}
 export const Products = ({
     onCartChange,
 }: {
@@ -37,7 +23,7 @@ export const Products = ({
     const [products, setProducts] = useState<Product[]>([])
 
     useEffect(() => {
-        fetch('/products?limit=10')
+        fetch('/products?limit=20')
             .then((response) => response.json())
             .then((data) => setProducts(data.products))
     }, [])
