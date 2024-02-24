@@ -1,16 +1,17 @@
-import { Cart, Products } from './Components/Products.tsx'
+import { Products } from './Components/Products.tsx'
 import { Box, CssBaseline } from '@mui/material'
 import SearchAppBar from './Components/SearchAppBar.tsx'
 import { Categories } from './Components/Categories.tsx'
 import { useState } from 'react'
 import { useProductPageStore } from './Store.ts'
+import { Cart } from './interfaces.ts'
 
 function App() {
-    const bears = useProductPageStore((state) => state.bears)
+    //refactor this to go to the store so both components can access it
+    // const bears = useProductPageStore((state) => state.bears)
     const [cart, setCart] = useState<Cart>()
     function onCartChange(cart: Cart) {
         setCart(cart)
-        console.log(bears)
     }
     return (
         <Box height="100vh" display="flex" flexDirection="column">
