@@ -20,7 +20,7 @@ function useGetInfiniteProducts() {
 
     const productsWithItemsInCart = allProducts.map((product) => ({
         ...product,
-        ItemsInCart: 0,
+        itemsInCart: 0,
     }))
     return {
         products: productsWithItemsInCart,

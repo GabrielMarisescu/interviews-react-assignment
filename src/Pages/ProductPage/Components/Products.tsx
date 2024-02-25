@@ -9,7 +9,6 @@ export const Products = () => {
 
     const { products, hasNextPage, isLoading, fetchNextPage } =
         useGetInfiniteProducts()
-
     return (
         <Box overflow="scroll" height="100%">
             <InfiniteScroll
