@@ -5,7 +5,7 @@ import { FullProducts } from '../interfaces'
  * @function
  * @param page ,number
  * @param limit, number
- *
+ * @returns Infinite Products as long as the back-end is paginated.
  */
 
 function useGetInfiniteProducts() {
