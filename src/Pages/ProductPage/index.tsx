@@ -5,9 +5,9 @@ import SearchAppBar from './Components/SearchAppBar.tsx'
 import { useState } from 'react'
 import { Cart } from './interfaces.ts'
 import ProductCategories from './Components/ProductCategories.tsx'
-import { useMutation } from '@tanstack/react-query'
 import { useQueryClient } from '@tanstack/react-query'
 import { ProductPageApiQueryKeys } from './api.ts'
+import _ from 'lodash'
 
 function App() {
     //refactor this to go to the store so both components can access it
@@ -18,14 +18,19 @@ function App() {
 
     const queryClient = useQueryClient()
 
+    const debouncedOnSearch = _.debounce((search: string) => {
+        changeSearch(search)
+        queryClient.invalidateQueries({
+            queryKey: [ProductPageApiQueryKeys.PRODUCTS],
+        })
+    }, 650)
+
     const onChangeSearch = (search: string) => {
-        if (search.length > 2) {
-            changeSearch(search)
-            queryClient.invalidateQueries({
-                queryKey: [ProductPageApiQueryKeys.PRODUCTS],
-            })
+        if (search.length >= 2 || !search.length) {
+            debouncedOnSearch(search)
         }
     }
+
     return (
         <Box height="100vh" display="flex" flexDirection="column">
             <CssBaseline />
