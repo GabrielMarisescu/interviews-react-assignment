@@ -1,21 +1,37 @@
-import { Box, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
-
-const drawerWidth = 180;
-
-const categories = ['Fruit', 'Vegetables', 'Dairy', 'Bakery', 'Meat', 'Seafood', 'Snacks', 'Beverages'];
-
-export const Categories = () => {
-  return (
-    <Box minWidth={drawerWidth} sx={{ borderRight: '1px solid grey' }}>
-      <List>
-        {categories.map((text) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text}/>
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-};
+import {
+    Box,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemText,
+} from '@mui/material'
+import { CategoriesProps } from '../interfaces'
+/**
+ * @function
+ * @param categories , CategoryEnum[]
+ * @param drawerWidth, number
+ * @returns The list of all the categories provided according to the drawerWidth
+ */
+export const Categories = ({
+    categories,
+    drawerWidth,
+    onChangeCategory,
+}: CategoriesProps) => {
+    return (
+        <Box minWidth={drawerWidth} sx={{ borderRight: '1px solid grey' }}>
+            <List>
+                {categories.map((category) => (
+                    <ListItem key={category} disablePadding>
+                        <ListItemButton
+                            onClick={() => {
+                                onChangeCategory(category)
+                            }}
+                        >
+                            <ListItemText primary={category} />
+                        </ListItemButton>
+                    </ListItem>
+                ))}
+            </List>
+        </Box>
+    )
+}

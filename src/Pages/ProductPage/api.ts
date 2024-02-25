@@ -1,4 +1,4 @@
-import { FullProducts } from './interfaces'
+import { CategoriesEnum, FullProducts } from './interfaces'
 
 /**
  *  @enum
@@ -11,24 +11,31 @@ export enum ProductPageApiQueryKeys {
 }
 
 interface fetchProductsParams {
+    searchParam?: string
     pageParam: number
-    limitParam: number
+    categoryParam?: CategoriesEnum | null
+    limitParam?: number
 }
 
 /**
  *  @function
  * Fetching function which allow you to search for products.
  * @param page  number. Required.
- * @param limit number.
- * @returns The paginated Products.
+ * @param category optional
+ * @param limit number optional
+ * @param search string optional
+ * @returns A list of Products filtered by your params.
  */
 
 export const fetchProducts = async ({
     pageParam,
+    categoryParam,
+    searchParam,
     limitParam = 20,
 }: fetchProductsParams): Promise<FullProducts> => {
+    const category = categoryParam ?? ''
     const rawProducts = await fetch(
-        `products?page=${pageParam}&limit=${limitParam}`
+        `products?page=${pageParam}&limit=${limitParam}&category=${category}&q=${searchParam}`
     )
     const products = await rawProducts.json()
     return { ...products, pageParam }

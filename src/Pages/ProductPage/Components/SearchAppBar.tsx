@@ -58,7 +58,7 @@ export default function SearchAppBar({
 }: {
     quantity: number
     price: number
-    changeSearch: (newSearch: string) => void
+    changeSearch: (search: string) => void
 }) {
     return (
         <Box>

@@ -24,3 +24,19 @@ export type ProductCardProps = Product & {
     key: number
     isLoading: boolean
 }
+
+export interface CategoriesProps {
+    categories: CategoriesEnum[]
+    drawerWidth: number
+    onChangeCategory: (category: CategoriesEnum) => void
+}
+export enum CategoriesEnum {
+    Fruit = 'Fruit',
+    Vegetables = 'Vegetables',
+    Dairy = 'Dairy',
+    Bakery = 'Bakery',
+    Meat = 'Meat',
+    Seafood = 'Seafood',
+    Snacks = 'Snacks',
+    Beverages = 'Beverages',
+}
