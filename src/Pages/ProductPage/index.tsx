@@ -3,16 +3,13 @@ import { Box, CssBaseline } from '@mui/material'
 import SearchAppBar from './Components/SearchAppBar.tsx'
 import { Categories } from './Components/Categories.tsx'
 import { useState } from 'react'
-import { useProductPageStore } from './Store.ts'
 import { Cart } from './interfaces.ts'
 
 function App() {
     //refactor this to go to the store so both components can access it
     // const bears = useProductPageStore((state) => state.bears)
     const [cart, setCart] = useState<Cart>()
-    function onCartChange(cart: Cart) {
-        setCart(cart)
-    }
+
     return (
         <Box height="100vh" display="flex" flexDirection="column">
             <CssBaseline />
@@ -23,7 +20,7 @@ function App() {
             <Box flex={1} display="flex" flexDirection="row">
                 <Categories />
                 <Box flex={1}>
-                    <Products onCartChange={onCartChange} />
+                    <Products />
                 </Box>
             </Box>
         </Box>
