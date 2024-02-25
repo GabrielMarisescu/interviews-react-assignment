@@ -3,15 +3,21 @@ import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
 interface ProductPageStoreInterface {
-    page: number
-    increasePage: () => void
+    category: string
+    changeCategory: (newCategory: string) => void
+    search: string
+    changeSearch: (newSearch: string) => void
 }
 
 export const useProductPageStore = create<ProductPageStoreInterface>()(
     devtools(
         (set) => ({
-            page: 0,
-            increasePage: () => set((state) => ({ page: state.page + 1 })),
+            category: '',
+            search: '',
+            changeCategory: (newCategory: string) =>
+                set(() => ({ category: newCategory })),
+            changeSearch: (newSearch: string) =>
+                set(() => ({ search: newSearch })),
         }),
         { name: 'ProductPageStore' }
     )

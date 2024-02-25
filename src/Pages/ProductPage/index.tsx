@@ -1,3 +1,4 @@
+import { useProductPageStore } from './Store.ts'
 import { Products } from './Components/Products.tsx'
 import { Box, CssBaseline } from '@mui/material'
 import SearchAppBar from './Components/SearchAppBar.tsx'
@@ -10,10 +11,12 @@ function App() {
     // const bears = useProductPageStore((state) => state.bears)
     const [cart, setCart] = useState<Cart>()
 
+    const changeSearch = useProductPageStore((state) => state.changeSearch)
     return (
         <Box height="100vh" display="flex" flexDirection="column">
             <CssBaseline />
             <SearchAppBar
+                changeSearch={changeSearch}
                 quantity={cart?.totalItems || 0}
                 price={cart?.totalPrice || 0}
             />
