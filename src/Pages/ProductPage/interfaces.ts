@@ -21,5 +21,6 @@ export type Cart = {
 }
 
 export type ProductCardProps = Product & {
+    key: number
     isLoading: boolean
 }

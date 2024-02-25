@@ -20,7 +20,11 @@ export const Products = () => {
             >
                 <Grid container spacing={2} p={2}>
                     {products?.map((product: Product) => (
-                        <ProductCard {...product} isLoading={isLoading} />
+                        <ProductCard
+                            isLoading={isLoading}
+                            key={product.id}
+                            {...product}
+                        />
                     ))}
                 </Grid>
             </InfiniteScroll>
