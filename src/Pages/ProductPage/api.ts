@@ -13,7 +13,7 @@ export enum ProductPageApiQueryKeys {
 interface fetchProductsParams {
     searchParam?: string
     pageParam: number
-    categoryParam?: CategoriesEnum | null
+    categoryParam?: CategoriesEnum | ''
     limitParam?: number
 }
 
@@ -33,9 +33,8 @@ export const fetchProducts = async ({
     searchParam,
     limitParam = 20,
 }: fetchProductsParams): Promise<FullProducts> => {
-    const category = categoryParam ?? ''
     const rawProducts = await fetch(
-        `products?page=${pageParam}&limit=${limitParam}&category=${category}&q=${searchParam}`
+        `products?page=${pageParam}&limit=${limitParam}&category=${categoryParam}&q=${searchParam}`
     )
     const products = await rawProducts.json()
     return { ...products, pageParam }

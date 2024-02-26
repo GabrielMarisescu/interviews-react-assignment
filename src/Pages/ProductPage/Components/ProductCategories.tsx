@@ -9,7 +9,9 @@ import { ProductPageApiQueryKeys } from '../api'
 const drawerWidth = 180
 
 //In a real app, I would make an api call to get the real categories.
+
 const categories: CategoriesEnum[] = [
+    CategoriesEnum.All,
     CategoriesEnum.Snacks,
     CategoriesEnum.Beverages,
     CategoriesEnum.Seafood,

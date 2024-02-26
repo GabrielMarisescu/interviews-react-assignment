@@ -31,6 +31,7 @@ export interface CategoriesProps {
     onChangeCategory: (category: CategoriesEnum) => void
 }
 export enum CategoriesEnum {
+    All = 'All',
     Fruit = 'Fruit',
     Vegetables = 'Vegetables',
     Dairy = 'Dairy',

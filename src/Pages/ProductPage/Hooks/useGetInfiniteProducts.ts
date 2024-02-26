@@ -8,10 +8,8 @@ import { CategoriesEnum, FullProducts } from '../interfaces'
  * @returns Infinite Products as long as the back-end is paginated.
  */
 
-function useGetInfiniteProducts(
-    category: CategoriesEnum | null,
-    search: string
-) {
+function useGetInfiniteProducts(category: CategoriesEnum, search: string) {
+    const categoryParam = category === CategoriesEnum.All ? '' : category
     const { data, hasNextPage, fetchNextPage, isLoading, isFetching, error } =
         useInfiniteQuery<FullProducts, Error>({
             initialPageParam: 0,
@@ -19,7 +17,7 @@ function useGetInfiniteProducts(
             queryFn: ({ pageParam }) =>
                 fetchProducts({
                     pageParam,
-                    categoryParam: category,
+                    categoryParam,
                     searchParam: search,
                 }),
             getNextPageParam: (lastPage) => {

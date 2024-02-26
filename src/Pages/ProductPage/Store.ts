@@ -4,7 +4,7 @@ import { devtools } from 'zustand/middleware'
 import { CategoriesEnum } from './interfaces'
 
 interface ProductPageStoreInterface {
-    category: CategoriesEnum | null
+    category: CategoriesEnum
     changeCategory: (newCategory: CategoriesEnum) => void
     search: string
     changeSearch: (newSearch: string) => void
@@ -13,7 +13,7 @@ interface ProductPageStoreInterface {
 export const useProductPageStore = create<ProductPageStoreInterface>()(
     devtools(
         (set) => ({
-            category: null,
+            category: CategoriesEnum.All,
             search: '',
             changeCategory: (newCategory: CategoriesEnum) =>
                 set(() => {
