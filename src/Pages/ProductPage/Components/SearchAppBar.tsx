@@ -7,6 +7,7 @@ import InputBase from '@mui/material/InputBase'
 import SearchIcon from '@mui/icons-material/Search'
 import { Badge } from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import { SearchAppBarProps } from '../interfaces'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -55,11 +56,7 @@ export default function SearchAppBar({
     quantity,
     price,
     changeSearch,
-}: {
-    quantity: number
-    price: number
-    changeSearch: (search: string) => void
-}) {
+}: SearchAppBarProps) {
     return (
         <Box>
             <AppBar position="relative">
@@ -80,7 +77,7 @@ export default function SearchAppBar({
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder="Search…"
+                            placeholder="Search"
                             inputProps={{ 'aria-label': 'search' }}
                             onChange={(e) =>
                                 changeSearch(e.currentTarget.value)

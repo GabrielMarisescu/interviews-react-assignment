@@ -30,6 +30,11 @@ export interface CategoriesProps {
     drawerWidth: number
     onChangeCategory: (category: CategoriesEnum) => void
 }
+export interface SearchAppBarProps {
+    quantity: number
+    price: number
+    changeSearch: (search: string) => void
+}
 export enum CategoriesEnum {
     All = 'All',
     Fruit = 'Fruit',
