@@ -21,7 +21,7 @@ function App() {
     const debouncedOnSearch = _.debounce((search: string) => {
         changeSearch(search)
         queryClient.invalidateQueries({
-            queryKey: [ProductPageApiQueryKeys.PRODUCTS],
+            queryKey: [ProductPageApiQueryKeys.PRODUCTS, search],
         })
     }, 650)
 

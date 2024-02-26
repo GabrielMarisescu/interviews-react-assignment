@@ -1,4 +1,5 @@
 import { Categories } from './Categories'
+import _ from 'lodash'
 import { CategoriesEnum } from '../interfaces'
 import { useProductPageStore } from '../Store'
 import { useQueryClient } from '@tanstack/react-query'
@@ -22,19 +23,20 @@ const categories: CategoriesEnum[] = [
 function ProductCategories() {
     const changeCategory = useProductPageStore((state) => state.changeCategory)
     const queryClient = useQueryClient()
-    const onChangeCategory = (category: CategoriesEnum) => {
+
+    const debouncedOnChangeCategory = _.debounce((category: CategoriesEnum) => {
         changeCategory(category)
         queryClient.invalidateQueries({
             queryKey: [ProductPageApiQueryKeys.PRODUCTS, category],
         })
-    }
+    }, 650)
 
     return (
         <>
             <Categories
                 categories={categories}
                 drawerWidth={drawerWidth}
-                onChangeCategory={onChangeCategory}
+                onChangeCategory={debouncedOnChangeCategory}
             />
         </>
     )
