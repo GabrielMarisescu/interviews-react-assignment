@@ -53,8 +53,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }))
 
 export default function SearchAppBar({
-    quantity,
-    price,
+    totalItems,
+    totalPrice,
     setSearch,
 }: SearchAppBarProps) {
     return (
@@ -87,10 +87,13 @@ export default function SearchAppBar({
                             Total:
                         </Typography>
                         <Typography variant="h6" noWrap component="div">
-                            $ {(price || 0).toFixed(2)}
+                            $ {totalPrice ? totalPrice.toFixed(2) : 0}
                         </Typography>
                     </Box>
-                    <Badge badgeContent={quantity || 0} color="secondary">
+                    <Badge
+                        badgeContent={totalItems ? totalItems : 0}
+                        color="secondary"
+                    >
                         <ShoppingCartIcon />
                     </Badge>
                 </Toolbar>

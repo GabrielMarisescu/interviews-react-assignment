@@ -22,9 +22,13 @@ export type Cart = {
 
 export type ProductCardProps = {
     key: number
-    product: Product
+    name: string
+    id: number
+    price: number
+    imageUrl: string
+    itemsInCart: number
     isLoading: boolean
-    addItemsToCart: (product: Product, quantity: number) => void
+    addToCart: ({ productId, quantity }: CartParams) => void
 }
 
 export interface CategoriesProps {
@@ -33,9 +37,14 @@ export interface CategoriesProps {
     onChangeCategory: (category: CategoriesEnum) => void
 }
 export interface SearchAppBarProps {
-    quantity: number
-    price: number
+    totalItems: number
+    totalPrice: number
     setSearch: (search: string) => void
+}
+
+export interface CartParams {
+    productId: number
+    quantity: number
 }
 
 export enum CategoriesEnum {

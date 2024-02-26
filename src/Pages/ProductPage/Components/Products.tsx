@@ -4,25 +4,15 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import useGetInfiniteProducts from '../Hooks/useGetInfiniteProducts'
 import ProductCard from './ProductCard'
 import { useProductPageStore } from '../Store'
-import { useEffect } from 'react'
-import _ from 'lodash'
+import useAddToCart from '../Hooks/useAddToCart'
 
 export const Products = () => {
-    // const addItemsToCart = useProductPageStore((store) => store.addItemToCart)
-
-    const products = useProductPageStore((store) => store.products)
     const search = useProductPageStore((store) => store.search)
     const category = useProductPageStore((store) => store.category)
-    const setProducts = useProductPageStore((store) => store.setProducts)
-    const { cachedProducts, hasNextPage, isLoading, fetchNextPage } =
+    const { products, hasNextPage, isLoading, fetchNextPage } =
         useGetInfiniteProducts(category, search)
 
-    useEffect(() => {
-        if (cachedProducts && !_.isEqual(cachedProducts, products)) {
-            setProducts(cachedProducts)
-        }
-    }, [cachedProducts, setProducts, products])
-
+    const { addToCart } = useAddToCart()
     return (
         <Box overflow="scroll" height="100%">
             <InfiniteScroll
@@ -34,8 +24,8 @@ export const Products = () => {
                 <Grid container spacing={2} p={2}>
                     {products?.map((product: Product) => (
                         <ProductCard
-                            product={product}
-                            // addItemsToCart={addItemsToCart}
+                            {...product}
+                            addToCart={addToCart}
                             isLoading={isLoading}
                             key={product.id}
                         />

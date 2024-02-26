@@ -5,6 +5,7 @@ import { CategoriesEnum, FullProducts } from '../interfaces'
  * @function
  * @param page ,number
  * @param limit, number
+ * @param category, CategoriesEnum
  * @returns Infinite Products as long as the back-end is paginated.
  */
 
@@ -34,7 +35,7 @@ function useGetInfiniteProducts(category: CategoriesEnum, search: string) {
         itemsInCart: 0,
     }))
     return {
-        cachedProducts: productsWithItemsInCart,
+        products: productsWithItemsInCart,
         error,
         isLoading,
         fetchNextPage,

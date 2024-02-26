@@ -1,4 +1,4 @@
-import { CategoriesEnum, FullProducts } from './interfaces'
+import { Cart, CategoriesEnum, FullProducts } from './interfaces'
 
 /**
  *  @enum
@@ -7,6 +7,7 @@ import { CategoriesEnum, FullProducts } from './interfaces'
  *  @returns string of the single selected key.
  */
 export enum ProductPageApiQueryKeys {
+    CART = 'CART',
     PRODUCTS = 'PRODUCTS',
 }
 
@@ -15,6 +16,10 @@ interface fetchProductsParams {
     pageParam: number
     categoryParam?: CategoriesEnum | ''
     limitParam?: number
+}
+interface postToCartParams {
+    quantity: number
+    productId: number
 }
 
 /**
@@ -39,4 +44,24 @@ export const fetchProducts = async ({
     const products = await rawProducts.json()
     return { ...products, pageParam }
 }
+
 //TODO : ADD Limit so you can choose how many items to see.
+
+export const postToCart = async ({
+    productId,
+    quantity,
+}: postToCartParams): Promise<Cart> => {
+    const rawCart = await fetch(`/cart`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId, quantity }),
+    })
+    const Cart = await rawCart.json()
+    return Cart
+}
+
+export const getCart = async (): Promise<Cart> => {
+    const rawCart = await fetch(`/cart`)
+    const Cart = await rawCart.json()
+    return Cart
+}
