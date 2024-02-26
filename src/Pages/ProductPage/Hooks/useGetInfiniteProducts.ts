@@ -34,7 +34,7 @@ function useGetInfiniteProducts(category: CategoriesEnum, search: string) {
         itemsInCart: 0,
     }))
     return {
-        products: productsWithItemsInCart,
+        cachedProducts: productsWithItemsInCart,
         error,
         isLoading,
         fetchNextPage,

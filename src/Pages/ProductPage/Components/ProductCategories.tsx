@@ -23,11 +23,11 @@ const categories: CategoriesEnum[] = [
 ]
 
 function ProductCategories() {
-    const changeCategory = useProductPageStore((state) => state.changeCategory)
+    const setCategory = useProductPageStore((state) => state.setCategory)
     const queryClient = useQueryClient()
 
     const debouncedOnChangeCategory = _.debounce((category: CategoriesEnum) => {
-        changeCategory(category)
+        setCategory(category)
         queryClient.invalidateQueries({
             queryKey: [ProductPageApiQueryKeys.PRODUCTS, category],
         })

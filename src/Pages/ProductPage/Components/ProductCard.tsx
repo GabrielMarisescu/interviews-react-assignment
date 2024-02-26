@@ -14,7 +14,8 @@ import { HeavyComponent } from '../../../Common/Hooks/HeavyComponent'
 import { ProductCardProps } from '../interfaces'
 
 function ProductCard(props: ProductCardProps) {
-    const { price, isLoading, id, imageUrl, name, itemsInCart } = props
+    const { isLoading, addItemsToCart } = props
+    const { name, id, price, imageUrl } = props.product
     return (
         <Grid item xs={4}>
             {/* Do not remove this */}
@@ -52,25 +53,20 @@ function ProductCard(props: ProductCardProps) {
                             disabled={isLoading}
                             aria-label="delete"
                             size="small"
-                            // onClick={useAddToCart(
-                            //     product.id,
-                            //     -1
-                            // )}
+                            // onClick={console.log(product.id, -1)}
                         >
                             <RemoveIcon fontSize="small" />
                         </IconButton>
 
                         <Typography variant="body1" component="div" mx={1}>
-                            {itemsInCart}
+                            0 {/* {itemsInCart} */}
                         </Typography>
 
                         <IconButton
                             disabled={isLoading}
                             aria-label="add"
                             size="small"
-                            // onClick={() =>
-                            //     addToCart(product.id, 1)
-                            // }
+                            onClick={() => addItemsToCart(props.product, +1)}
                         >
                             <AddIcon fontSize="small" />
                         </IconButton>

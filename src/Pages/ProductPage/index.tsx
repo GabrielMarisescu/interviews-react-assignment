@@ -11,15 +11,14 @@ import _ from 'lodash'
 
 function App() {
     //refactor this to go to the store so both components can access it
-    // const bears = useProductPageStore((state) => state.bears)
     const [cart, setCart] = useState<Cart>()
 
-    const changeSearch = useProductPageStore((state) => state.changeSearch)
+    const setSearch = useProductPageStore((state) => state.setSearch)
 
     const queryClient = useQueryClient()
 
     const debouncedOnSearch = _.debounce((search: string) => {
-        changeSearch(search)
+        setSearch(search)
         queryClient.invalidateQueries({
             queryKey: [ProductPageApiQueryKeys.PRODUCTS, search],
         })
@@ -35,7 +34,7 @@ function App() {
         <Box height="100vh" display="flex" flexDirection="column">
             <CssBaseline />
             <SearchAppBar
-                changeSearch={onChangeSearch}
+                setSearch={onChangeSearch}
                 quantity={cart?.totalItems || 0}
                 price={cart?.totalPrice || 0}
             />

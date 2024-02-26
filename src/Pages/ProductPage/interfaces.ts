@@ -20,9 +20,11 @@ export type Cart = {
     totalItems: number
 }
 
-export type ProductCardProps = Product & {
+export type ProductCardProps = {
     key: number
+    product: Product
     isLoading: boolean
+    addItemsToCart: (product: Product, quantity: number) => void
 }
 
 export interface CategoriesProps {
@@ -33,8 +35,9 @@ export interface CategoriesProps {
 export interface SearchAppBarProps {
     quantity: number
     price: number
-    changeSearch: (search: string) => void
+    setSearch: (search: string) => void
 }
+
 export enum CategoriesEnum {
     All = 'All',
     Fruit = 'Fruit',

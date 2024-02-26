@@ -55,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function SearchAppBar({
     quantity,
     price,
-    changeSearch,
+    setSearch,
 }: SearchAppBarProps) {
     return (
         <Box>
@@ -79,9 +79,7 @@ export default function SearchAppBar({
                         <StyledInputBase
                             placeholder="Search"
                             inputProps={{ 'aria-label': 'search' }}
-                            onChange={(e) =>
-                                changeSearch(e.currentTarget.value)
-                            }
+                            onChange={(e) => setSearch(e.currentTarget.value)}
                         />
                     </Search>
                     <Box display="flex" flexDirection="row" mx={2}>

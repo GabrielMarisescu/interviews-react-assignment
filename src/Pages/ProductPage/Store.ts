@@ -1,21 +1,27 @@
 import { create } from 'zustand'
 
 import { devtools } from 'zustand/middleware'
-import { CategoriesEnum } from './interfaces'
+import { CategoriesEnum, Product } from './interfaces'
 
 interface ProductPageStoreInterface {
     category: CategoriesEnum
-    changeCategory: (newCategory: CategoriesEnum) => void
+    setCategory: (newCategory: CategoriesEnum) => void
     search: string
-    changeSearch: (newSearch: string) => void
+    setSearch: (newSearch: string) => void
+    // addItemToCart: (product: Product, quantity: number) => void
+    products: Product[]
+    setProducts: (newProducts: Product[]) => void
 }
 
 export const useProductPageStore = create<ProductPageStoreInterface>()(
     devtools(
         (set) => ({
-            category: CategoriesEnum.All,
-            search: '',
-            changeCategory: (newCategory: CategoriesEnum) =>
+            products: [],
+            setProducts: (newProducts: Product[]) => {
+                set(() => ({ products: [...newProducts] }))
+            },
+            category: CategoriesEnum.All as const,
+            setCategory: (newCategory: CategoriesEnum) =>
                 set(() => {
                     // Incase we will need multiple categories
                     // const uniqueCategories = [
@@ -24,8 +30,24 @@ export const useProductPageStore = create<ProductPageStoreInterface>()(
                     // ]
                     return { category: newCategory }
                 }),
-            changeSearch: (newSearch: string) =>
+
+            search: '',
+            setSearch: (newSearch: string) =>
                 set(() => ({ search: newSearch })),
+            // addItemToCart: (product: Product, quantity: number) =>
+            //     set((prev) => ({
+            //         cart: {
+            //             items: [
+            //                 ...prev.cart.items,
+            //                 {
+            //                     ...product,
+            //                     itemsInCart: product.itemsInCart + quantity,
+            //                 },
+            //             ],
+            //             totalItems: quantity,
+            //             totalPrice: quantity,
+            //         },
+            //     })),
         }),
         { name: 'ProductPageStore' }
     )
