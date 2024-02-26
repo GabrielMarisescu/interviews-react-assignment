@@ -14,8 +14,9 @@ import { HeavyComponent } from '../../../Common/Hooks/HeavyComponent'
 import { ProductCardProps } from '../interfaces'
 
 function ProductCard(props: ProductCardProps) {
-    const { isLoading, addItemsToCart } = props
-    const { name, id, price, imageUrl } = props.product
+    const { isLoading, addToCart, name, id, price, imageUrl, itemsInCart } =
+        props
+
     return (
         <Grid item xs={4}>
             {/* Do not remove this */}
@@ -59,14 +60,16 @@ function ProductCard(props: ProductCardProps) {
                         </IconButton>
 
                         <Typography variant="body1" component="div" mx={1}>
-                            0 {/* {itemsInCart} */}
+                            {itemsInCart}
                         </Typography>
 
                         <IconButton
                             disabled={isLoading}
                             aria-label="add"
                             size="small"
-                            onClick={() => addItemsToCart(props.product, +1)}
+                            onClick={() =>
+                                addToCart({ productId: id, quantity: 1 })
+                            }
                         >
                             <AddIcon fontSize="small" />
                         </IconButton>
