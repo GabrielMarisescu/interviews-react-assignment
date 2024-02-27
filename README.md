@@ -123,22 +123,24 @@ checkout is a multistep form with these steps:
 
 ## Technical choices
 
-# React Query
+### React Query
 
-# Zustand
+### Zustand
 
-# React-Infinite-Scroll-Component
+### React-Infinite-Scroll-Component
 
-# React Router
+### React Router
 
-# Cypress
+### Cypress
 
-# Lodash
+### Lodash
 
 ## Structure
 
-# More on this in the provided documentation.
+#### More on this in the provided documentation.
 
-Cypress folder for Tests
+Cypress folder for Tests.
+
 Common Folder, for common logic.
+
 Pages: Hooks,Components,Interfaces,API,Store and index.ts.
