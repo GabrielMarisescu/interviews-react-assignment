@@ -23,12 +23,10 @@ interface postToCartParams {
 }
 
 /**
- *  @function
- * Fetching function which allow you to search for products.
  * @param page  number. Required.
- * @param category optional
- * @param limit number optional
- * @param search string optional
+ * @param category Optional
+ * @param limit number Optional
+ * @param search string Optional
  * @returns A list of Products filtered by your params.
  */
 
@@ -47,6 +45,11 @@ export const fetchProducts = async ({
 
 //TODO : ADD Limit so you can choose how many items to see.
 
+/**
+ * @param productId, Required
+ * @param quantity, Required
+ * @returns an array of products
+ */
 export const postToCart = async ({
     productId,
     quantity,

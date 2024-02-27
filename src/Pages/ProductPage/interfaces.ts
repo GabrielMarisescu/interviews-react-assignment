@@ -14,8 +14,13 @@ export type FullProducts = {
     pageParam: number
 }
 
+interface CartItems {
+    quantity: number
+    products: Product[]
+}
+
 export type Cart = {
-    items: Product[]
+    items: CartItems[]
     totalPrice: number
     totalItems: number
 }
