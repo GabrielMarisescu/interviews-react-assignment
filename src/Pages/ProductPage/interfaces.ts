@@ -23,6 +23,7 @@ export type Cart = {
     items: CartItems[]
     totalPrice: number
     totalItems: number
+    loading?: boolean
 }
 
 export type ProductCardProps = {
