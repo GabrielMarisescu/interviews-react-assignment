@@ -108,7 +108,7 @@ checkout is a multistep form with these steps:
 
 ## [Live Demo](https://interviews-react-assignment-e4vmfnlhs-gabrielmarisescu.vercel.app/)
 
-## [Techncial Documentation](https://docs.google.com/document/d/1vPnV8SPkcUPIYViNScyBZyDtzmdy5YnvOtfoclacNa4/)
+## [Technical Documentation](https://docs.google.com/document/d/1vPnV8SPkcUPIYViNScyBZyDtzmdy5YnvOtfoclacNa4/)
 
 ## Please Read the Provided Technical Analysis and Documentation on Google Docs.
 
