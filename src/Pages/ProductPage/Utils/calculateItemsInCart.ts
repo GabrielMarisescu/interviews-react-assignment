@@ -1,14 +1,13 @@
-import { CartItem } from '../interfaces'
+import { CartItems } from '../interfaces'
 
 export const calculateItemsInCart = (
     productId: number,
-    cartItems: CartItem[] | undefined
+    cartItems: CartItems[] | undefined
 ): number => {
     if (cartItems) {
-        const matchingProduct = cartItems.find(
-            ({ product }) => product.id === productId
-        )
-
+        const matchingProduct = cartItems.find((products) => {
+            return products.product.id === productId
+        })
         if (matchingProduct) {
             return matchingProduct.quantity
         }

@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import RemoveIcon from '@mui/icons-material/Remove'
 import AddIcon from '@mui/icons-material/Add'
-import { HeavyComponent } from '../../../Common/Hooks/HeavyComponent'
+// import { HeavyComponent } from '../../../Common/Hooks/HeavyComponent'
 import { ProductCardProps } from '../interfaces'
 
 function ProductCard(props: ProductCardProps) {

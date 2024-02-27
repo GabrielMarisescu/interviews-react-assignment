@@ -14,9 +14,9 @@ export type FullProducts = {
     pageParam: number
 }
 
-interface CartItems {
+export interface CartItems {
+    product: Product
     quantity: number
-    products: Product[]
 }
 
 export type Cart = {
@@ -66,6 +66,6 @@ export enum CategoriesEnum {
 }
 
 export interface CartItem {
-    product: Product
+    product: Product[]
     quantity: number
 }

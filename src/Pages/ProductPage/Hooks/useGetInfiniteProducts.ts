@@ -17,6 +17,7 @@ function useGetInfiniteProducts(category: CategoriesEnum, search: string) {
             queryKey: [ProductPageApiQueryKeys.PRODUCTS, category, search],
             queryFn: ({ pageParam }) =>
                 fetchProducts({
+                    // @ts-expect-error pageParam doesn't get typed in the right way
                     pageParam,
                     categoryParam,
                     searchParam: search,

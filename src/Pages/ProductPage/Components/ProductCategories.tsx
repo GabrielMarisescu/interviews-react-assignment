@@ -5,7 +5,6 @@ import { useProductPageStore } from '../Store'
 import { useQueryClient } from '@tanstack/react-query'
 import { ProductPageApiQueryKeys } from '../api'
 
-// Get QueryClient from the context
 const drawerWidth = 180
 
 //In a real app, I would make an api call to get the real categories.

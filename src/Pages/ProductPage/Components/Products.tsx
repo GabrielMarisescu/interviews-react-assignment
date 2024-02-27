@@ -14,8 +14,8 @@ export const Products = () => {
     const { products, hasNextPage, isLoading, fetchNextPage } =
         useGetInfiniteProducts(category, search)
     const { cart } = useGetCart()
-
     const { addToCart } = useAddToCart()
+
     return (
         <Box overflow="scroll" height="100%">
             <InfiniteScroll
