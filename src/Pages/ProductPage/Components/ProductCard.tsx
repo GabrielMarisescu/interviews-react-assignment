@@ -54,7 +54,9 @@ function ProductCard(props: ProductCardProps) {
                             disabled={isLoading}
                             aria-label="delete"
                             size="small"
-                            // onClick={console.log(product.id, -1)}
+                            onClick={() => {
+                                addToCart({ productId: id, quantity: -1 })
+                            }}
                         >
                             <RemoveIcon fontSize="small" />
                         </IconButton>
