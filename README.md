@@ -1,7 +1,7 @@
 <!---
 Hi! We're happy you opened this file, not everyone does!
-To let us know you did, paste a capybara picture 
-in the How to Run section 😊 
+To let us know you did, paste a capybara picture
+in the How to Run section 😊
 These will be extra points for you!
 -->
 
@@ -26,11 +26,11 @@ now, we will assess your work.
 
 Your work will be assessed according to several criteria. As an example, these include:
 
-* Code quality
-* Design Patterns
-* Project Structure
-* Work quality (commits, branches, workflow, tests, ...)
-* Provided Documentation
+-   Code quality
+-   Design Patterns
+-   Project Structure
+-   Work quality (commits, branches, workflow, tests, ...)
+-   Provided Documentation
 
 #### A Friendly Reminder:
 
@@ -58,7 +58,7 @@ fully elicited. **This is done on purpose**: we want to give you the freedom to 
 fewer constraints as possible on your work. We appreciate if you could record any decisions, assumptions and doubts,
 together with any questions that you will ask in a real-world scenario.
 
----   
+---
 
 ### Problem Domain
 
@@ -97,11 +97,48 @@ would be great if we can do something on it on frontend Side to make it smother.
 The last part to implement is the checkout phase, where the user can pay for the products and organize the delivery. The
 checkout is a multistep form with these steps:
 
-* recap of the cart and final price
-* the address where the products should be delivered and the delivery slot selection
-* the payment method
-* the confirmation of the order
+-   recap of the cart and final price
+-   the address where the products should be delivered and the delivery slot selection
+-   the payment method
+-   the confirmation of the order
 
 ## Documentation
 
-...
+![Capybara](https://www.rainforest-alliance.org/wp-content/uploads/2021/06/capybara-square-1.jpg.optimal.jpg)
+
+![Live Demo](https://interviews-react-assignment-e4vmfnlhs-gabrielmarisescu.vercel.app/)
+
+## ![Techncial Documentation](https://docs.google.com/document/d/1vPnV8SPkcUPIYViNScyBZyDtzmdy5YnvOtfoclacNa4/)
+
+## Please Read the Provided Technical Analysis and Documentation on Google Docs.
+
+## Installation
+
+1. Clone the project.
+2. Install the dependencies.
+3. Run The Project.
+
+-   npm install
+-   npm run dev
+
+## Technical choices
+
+# React Query
+
+# Zustand
+
+# React-Infinite-Scroll-Component
+
+# React Router
+
+# Cypress
+
+# Lodash
+
+## Structure
+
+# More on this in the provided documentation.
+
+Cypress folder for Tests
+Common Folder, for common logic.
+Pages: Hooks,Components,Interfaces,API,Store and index.ts.
