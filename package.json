@@ -1,47 +1,48 @@
 {
-  "name": "a",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint a --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.15.10",
-    "@mui/material": "^5.15.10",
-    "@tanstack/react-query": "^5.22.2",
-    "@tanstack/react-query-devtools": "^5.24.0",
-    "@types/lodash": "^4.14.202",
-    "lodash": "^4.17.21",
-    "msw": "^2.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-infinite-scroll-component": "^6.1.0",
-    "react-router": "^6.22.1",
-    "react-router-dom": "^6.22.1",
-    "zustand": "^4.5.1"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.55",
-    "@types/react-dom": "^18.2.19",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "cypress": "^13.6.6",
-    "eslint": "^8.56.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "typescript": "^5.2.2",
-    "vite": "^5.1.0"
-  },
-  "msw": {
-    "workerDirectory": [
-      "public"
-    ]
-  }
+    "name": "a",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "tests": "npx cypress open",
+        "build": "tsc && vite build",
+        "lint": "eslint a --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.11.3",
+        "@emotion/styled": "^11.11.0",
+        "@mui/icons-material": "^5.15.10",
+        "@mui/material": "^5.15.10",
+        "@tanstack/react-query": "^5.22.2",
+        "@tanstack/react-query-devtools": "^5.24.0",
+        "@types/lodash": "^4.14.202",
+        "lodash": "^4.17.21",
+        "msw": "^2.2.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-infinite-scroll-component": "^6.1.0",
+        "react-router": "^6.22.1",
+        "react-router-dom": "^6.22.1",
+        "zustand": "^4.5.1"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.55",
+        "@types/react-dom": "^18.2.19",
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "@typescript-eslint/parser": "^6.21.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "cypress": "^13.6.6",
+        "eslint": "^8.56.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.5",
+        "typescript": "^5.2.2",
+        "vite": "^5.1.0"
+    },
+    "msw": {
+        "workerDirectory": [
+            "public"
+        ]
+    }
 }
