@@ -6,9 +6,10 @@ import ProductCategories from './Components/ProductCategories.tsx'
 import { useQueryClient } from '@tanstack/react-query'
 import { ProductPageApiQueryKeys } from './api.ts'
 import _ from 'lodash'
+import useGetCart from './Hooks/useGetCart.ts'
 
 function App() {
-    // const { cart } = useGetCart()
+    const { cart } = useGetCart()
     const setSearch = useProductPageStore((state) => state.setSearch)
     const queryClient = useQueryClient()
     const debouncedOnSearch = _.debounce((search: string) => {
@@ -29,8 +30,8 @@ function App() {
             <CssBaseline />
             <SearchAppBar
                 setSearch={onChangeSearch}
-                totalItems={0}
-                totalPrice={0}
+                totalItems={cart?.totalItems}
+                totalPrice={cart?.totalPrice}
             />
             <Box flex={1} display="flex" flexDirection="row">
                 <ProductCategories />

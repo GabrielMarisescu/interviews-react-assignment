@@ -4,17 +4,15 @@ import { CartParams } from '../interfaces'
 
 /**
  *
- * @returns - Cart
  * Makes a POST request to '/cart'
- * Invalidates ProductPageApiQueryKeys.CART cache,
- * @function addToCart
+ * @returns @function addToCart
  */
 const useAddToCart = () => {
     const queryClient = useQueryClient()
     const addToCartMutation = useMutation({
         mutationFn: ({ productId, quantity }: CartParams) =>
             postToCart({ productId, quantity }),
-        onSuccess: () => {
+        onSettled: () => {
             queryClient.invalidateQueries({
                 queryKey: [ProductPageApiQueryKeys.CART],
             })
@@ -22,8 +20,10 @@ const useAddToCart = () => {
     })
 
     /**
-     * @param productId-
+     * @param productId
      * @param quantity
+     * Makes a post to '/cart' with the params.
+     * Invalidates the ProductPageApiQueryKeys.CART cache
      */
     const addToCart = ({ productId, quantity }: CartParams) => {
         addToCartMutation.mutateAsync({ productId, quantity })

@@ -26,7 +26,7 @@ export type ProductCardProps = {
     id: number
     price: number
     imageUrl: string
-    itemsInCart: number
+    itemsInCart: () => number
     isLoading: boolean
     addToCart: ({ productId, quantity }: CartParams) => void
 }
@@ -37,8 +37,8 @@ export interface CategoriesProps {
     onChangeCategory: (category: CategoriesEnum) => void
 }
 export interface SearchAppBarProps {
-    totalItems: number
-    totalPrice: number
+    totalItems: number | undefined
+    totalPrice: number | undefined
     setSearch: (search: string) => void
 }
 
@@ -57,4 +57,9 @@ export enum CategoriesEnum {
     Seafood = 'Seafood',
     Snacks = 'Snacks',
     Beverages = 'Beverages',
+}
+
+export interface CartItem {
+    product: Product
+    quantity: number
 }

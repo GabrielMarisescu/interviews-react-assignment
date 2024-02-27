@@ -20,7 +20,7 @@ function ProductCard(props: ProductCardProps) {
     return (
         <Grid item xs={4}>
             {/* Do not remove this */}
-            <HeavyComponent />
+            {/* <HeavyComponent /> */}
             <Card key={id} style={{ width: '100%' }}>
                 <CardMedia component="img" height="150" image={imageUrl} />
                 <CardContent>
@@ -60,7 +60,7 @@ function ProductCard(props: ProductCardProps) {
                         </IconButton>
 
                         <Typography variant="body1" component="div" mx={1}>
-                            {itemsInCart}
+                            {itemsInCart()}
                         </Typography>
 
                         <IconButton
