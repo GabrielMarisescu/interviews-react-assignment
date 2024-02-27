@@ -106,9 +106,9 @@ checkout is a multistep form with these steps:
 
 ![Capybara](https://www.rainforest-alliance.org/wp-content/uploads/2021/06/capybara-square-1.jpg.optimal.jpg)
 
-![Live Demo](https://interviews-react-assignment-e4vmfnlhs-gabrielmarisescu.vercel.app/)
+## [Live Demo](https://interviews-react-assignment-e4vmfnlhs-gabrielmarisescu.vercel.app/)
 
-## ![Techncial Documentation](https://docs.google.com/document/d/1vPnV8SPkcUPIYViNScyBZyDtzmdy5YnvOtfoclacNa4/)
+## [Techncial Documentation](https://docs.google.com/document/d/1vPnV8SPkcUPIYViNScyBZyDtzmdy5YnvOtfoclacNa4/)
 
 ## Please Read the Provided Technical Analysis and Documentation on Google Docs.
 
