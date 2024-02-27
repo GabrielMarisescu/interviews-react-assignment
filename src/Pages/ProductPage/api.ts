@@ -66,5 +66,5 @@ export const postToCart = async ({
 export const getCart = async (): Promise<Cart> => {
     const rawCart = await fetch(`/cart`)
     const Cart = await rawCart.json()
-    return Cart
+    return { ...Cart, loading: false }
 }

@@ -9,15 +9,15 @@ import { Cart } from '../interfaces'
  */
 
 function useGetCart() {
-    const { data, isLoading, isFetching, error } = useQuery<Cart, Error>({
+    const { data, isFetching, error } = useQuery<Cart, Error>({
         queryKey: [ProductPageApiQueryKeys.CART],
         queryFn: () => getCart(),
     })
 
     return {
         cart: data,
+        isLoading: data?.loading,
         error,
-        isLoading,
         isFetching,
     }
 }

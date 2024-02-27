@@ -5,14 +5,28 @@ import { CartParams } from '../interfaces'
 /**
  *
  * Makes a POST request to '/cart'
- * @returns @function addToCart
+ * @returns addToCart
  */
 const useAddToCart = () => {
     const queryClient = useQueryClient()
     const addToCartMutation = useMutation({
         mutationFn: ({ productId, quantity }: CartParams) =>
             postToCart({ productId, quantity }),
+        onMutate: () => {
+            queryClient.setQueryData(
+                [ProductPageApiQueryKeys.CART],
+                (prevData: CacheQueryOptions) => {
+                    return { ...prevData, loading: true }
+                }
+            )
+        },
         onSettled: () => {
+            queryClient.setQueryData(
+                [ProductPageApiQueryKeys.CART],
+                (prevData: CacheQueryOptions) => {
+                    return { ...prevData, loading: false }
+                }
+            )
             queryClient.invalidateQueries({
                 queryKey: [ProductPageApiQueryKeys.CART],
             })

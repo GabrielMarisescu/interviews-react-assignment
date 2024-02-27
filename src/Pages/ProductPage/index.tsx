@@ -7,9 +7,10 @@ import { useQueryClient } from '@tanstack/react-query'
 import { ProductPageApiQueryKeys } from './api.ts'
 import _ from 'lodash'
 import useGetCart from './Hooks/useGetCart.ts'
+import LinearProgression from './Components/LinearProgression.tsx'
 
 function App() {
-    const { cart } = useGetCart()
+    const { cart, isLoading } = useGetCart()
     const setSearch = useProductPageStore((state) => state.setSearch)
     const queryClient = useQueryClient()
     const debouncedOnSearch = _.debounce((search: string) => {
@@ -33,6 +34,7 @@ function App() {
                 totalItems={cart?.totalItems}
                 totalPrice={cart?.totalPrice}
             />
+            {isLoading ? <LinearProgression /> : null}
             <Box flex={1} display="flex" flexDirection="row">
                 <ProductCategories />
                 <Box flex={1}>
