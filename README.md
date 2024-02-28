@@ -110,7 +110,7 @@ checkout is a multistep form with these steps:
 
 ## [Technical Documentation](https://docs.google.com/document/d/1vPnV8SPkcUPIYViNScyBZyDtzmdy5YnvOtfoclacNa4/)
 
-## Please Read the Provided Technical Analysis and Documentation on Google Docs.
+### Please Read the Provided Technical Analysis and Documentation on Google Docs.
 
 ## Installation
 
@@ -123,24 +123,26 @@ checkout is a multistep form with these steps:
 
 ## Technical choices
 
-### React Query
+* React Query
 
-### Zustand
+* Zustand
 
-### React-Infinite-Scroll-Component
+* React-Infinite-Scroll-Component
 
-### React Router
+* React Router
 
-### Cypress
+* Cypress
 
-### Lodash
+* Lodash
 
-## Structure
+* Structure
 
 #### More on this in the provided documentation.
 
-Cypress folder for Tests.
+## Project Structure
 
-Common Folder, for common logic.
+Root => Cypress , for Tests.
 
-Pages: Hooks,Components,Interfaces,API,Store and index.ts.
+Root => Common , for common logic such as components and hooks.
+
+Root => Pages: Hooks,Components,Interfaces,API,Store and index.ts.
